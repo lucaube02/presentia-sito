@@ -3,38 +3,190 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Presentia – Supporto</title>
+<title>Presentia – Presenze e cantieri, sotto controllo</title>
+<meta name="description" content="Presentia è l’app per le imprese edili e gli artigiani: timbratura dal telefono, rapportini con foto e firma, ore pronte per le paghe, costi e margine di ogni cantiere. Prova gratis 14 giorni.">
+<meta property="og:title" content="Presentia – Presenze e cantieri, sotto controllo">
+<meta property="og:description" content="Timbratura, rapportini, ore e margine dei cantieri in un’unica app. Prova gratis 14 giorni.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#121417">
 <style>
-:root{--ink:#1C1F22;--muted:#5A5F66;--accent:#F25A00;--bg:#F8F7F3;--card:#fff}
-@media (prefers-color-scheme:dark){:root{--ink:#FBFAF8;--muted:#B4BAC1;--accent:#FF9248;--bg:#121417;--card:#1C1F23}}
+:root{--bg:#121417;--bg2:#1A1D21;--card:#22262B;--line:#2E333A;--ink:#FBFAF8;--muted:#B4BAC1;--accent:#FF8A42;--accent2:#F25A00;--ok:#5AD48A}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-main{max-width:760px;margin:0 auto;padding:40px 16px 64px}
-h1{font-size:30px;margin:0 0 4px;color:var(--accent)}
-h2{font-size:19px;margin:32px 0 8px}
-.sub{color:var(--muted);margin:0 0 28px}
-.card{background:var(--card);border-radius:16px;padding:20px 22px;margin:16px 0}
-a{color:var(--accent)}
-ul{padding-left:22px}
-footer{margin-top:40px;color:var(--muted);font-size:14px}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:0;z-index:10;background:rgba(18,20,23,.82);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:22px;height:64px}
+.logo{font-weight:800;font-size:21px;letter-spacing:1.2px;text-decoration:none;font-stretch:condensed}
+.logo b{color:var(--accent2)}
+nav{margin-left:auto;display:flex;gap:22px;align-items:center;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent2);color:#fff!important;text-decoration:none;font-weight:700;border-radius:12px;padding:13px 22px;border:0;font-size:16px;transition:transform .15s,background .15s}
+.btn:hover{background:#ff6a14;transform:translateY(-1px)}
+.btn.small{padding:9px 16px;font-size:14.5px}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)!important}.btn.ghost:hover{border-color:var(--muted);background:transparent}
+.hero{position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;right:-18%;top:-30%;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(242,90,0,.34) 0%,rgba(242,90,0,0) 62%);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:72px;padding-bottom:84px;position:relative}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);background:rgba(242,90,0,.14);border-radius:30px;padding:6px 14px;margin-bottom:20px}
+h1{font-size:clamp(40px,6.2vw,72px);line-height:1.02;margin:0 0 20px;letter-spacing:-1.2px;font-weight:800}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:clamp(18px,2vw,21px);color:var(--muted);max-width:560px;margin:0 0 30px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.fine{margin-top:16px;font-size:14px;color:var(--muted)}
+.phone{justify-self:center;width:min(300px,78vw);aspect-ratio:9/19.5;border-radius:44px;background:#000;padding:10px;box-shadow:0 0 0 2px #2a2d31,0 40px 90px rgba(0,0,0,.6),0 0 120px rgba(242,90,0,.18);position:relative}
+.phone video,.phone img{width:100%;height:100%;object-fit:cover;border-radius:35px;display:block;background:#0b0d0f}
+section{padding:84px 0}
+.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2{font-size:clamp(30px,4vw,44px);line-height:1.1;letter-spacing:-.6px;margin:0 0 12px;font-weight:800}
+.sub{color:var(--muted);max-width:640px;margin:0 0 44px;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px}
+.feat .ico{display:inline-flex;width:46px;height:46px;border-radius:13px;align-items:center;justify-content:center;margin-bottom:14px;filter:saturate(1.3) brightness(1.35)}
+.feat h3{margin:0 0 6px;font-size:18px;line-height:1.25}
+.feat p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;justify-items:center}
+.shots figure{margin:0;text-align:center}
+.shots .phone{width:min(250px,70vw);box-shadow:0 0 0 2px #2a2d31,0 30px 60px rgba(0,0,0,.5)}
+figcaption{margin-top:16px;color:var(--muted);font-size:15px}figcaption b{display:block;color:var(--ink);font-size:17px}
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.browser{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55);background:#0b0d0f}
+.browser .bar{height:34px;background:#1d2024;display:flex;align-items:center;gap:7px;padding:0 14px}.browser .bar i{width:11px;height:11px;border-radius:50%;background:#3a3f46}
+.browser img{display:block;width:100%}
+ul.checks{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+ul.checks li{display:flex;gap:12px;align-items:flex-start;color:var(--muted)}ul.checks li b{color:var(--ink)}
+ul.checks svg{flex:none;color:var(--ok);margin-top:4px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;counter-increment:s}
+.step:before{content:counter(s);display:flex;width:38px;height:38px;border-radius:50%;background:var(--accent2);color:#fff;font-weight:800;align-items:center;justify-content:center;margin-bottom:14px}
+.step h3{margin:0 0 6px;font-size:18px}.step p{margin:0;color:var(--muted);font-size:15px}
+.final{text-align:center}
+.final .box{background:linear-gradient(135deg,#2a1608,#1A1D21 60%);border:1px solid #4a2a12;border-radius:28px;padding:56px 24px}
+.final .sub{margin-left:auto;margin-right:auto}
+footer{padding:34px 0 50px;color:var(--muted);font-size:14.5px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:center}footer a{color:var(--muted)}footer .sp{margin-left:auto}
+@media (max-width:900px){
+ nav a:not(.btn){display:none}
+ .hero .wrap{grid-template-columns:1fr;padding-top:44px;padding-bottom:56px;gap:36px}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .shots{grid-template-columns:1fr;gap:40px}
+ .split{grid-template-columns:1fr;gap:28px}
+ .steps{grid-template-columns:1fr}
+ section{padding:60px 0}
+}
+@media (max-width:520px){.grid{grid-template-columns:1fr}.cta .btn{width:100%}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
 </head>
 <body>
-<main>
-<h1>Supporto Presentia</h1>
-<p class="sub">Presenze e cantieri, sotto controllo.</p>
+<header><div class="wrap">
+  <a class="logo" href="#top">PRE<b>·</b>SENTIA</a>
+  <nav>
+    <a href="#funzioni">Funzioni</a>
+    <a href="#computer">Dal computer</a>
+    <a href="#privacy">Privacy</a>
+    <a href="supporto.html">Supporto</a>
+    <a class="btn small" href="prova.html">Prova gratis</a>
+  </nav>
+</div></header>
 
-<div class="card">
-<p><strong>Hai bisogno di aiuto?</strong> Scrivici a <a href="mailto:presentia.app@gmail.com">presentia.app@gmail.com</a>: rispondiamo entro un giorno lavorativo.</p>
-</div>
+<main id="top">
+<div class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow">Per imprese edili e artigiani · Svizzera e Italia</span>
+    <h1>Presenze e cantieri, <em>sotto controllo.</em></h1>
+    <p class="lead">Timbratura dal telefono, rapportini con foto e firma, ore pronte per le paghe e il margine di ogni cantiere. Tutto in un’app, senza fogli e senza telefonate.</p>
+    <div class="cta">
+      <a class="btn" href="prova.html">Prova gratis 14 giorni</a>
+      <a class="btn ghost" href="#funzioni">Scopri cosa fa</a>
+    </div>
+    <p class="fine">Nessuna carta di credito. Il codice arriva subito e sei operativo in dieci minuti.</p>
+  </div>
+  <div class="phone"><video src="media/presentia-reel-FINALE.mp4" autoplay muted loop playsinline preload="metadata" poster="media/1-panoramica.jpg"></video></div>
+</div></div>
 
-<h2>Domande frequenti</h2>
-<p><strong>Come attivo Presentia per la mia azienda?</strong><br>Serve un codice azienda: <a href="prova.html">richiedi qui la prova gratuita di 14 giorni</a> e lo ricevi subito, oppure contattaci all'indirizzo qui sopra.</p>
-<p><strong>Come accede un dipendente?</strong><br>Il titolare lo aggiunge da Altro → Aggiungi dipendente e gli invia il codice personale. Il dipendente apre l'app, tocca "Accedi" → "Dipendente" e inserisce numero di telefono e codice.</p>
-<p><strong>La timbratura automatica non funziona.</strong><br>Controlla che la posizione sia consentita per Presentia nelle impostazioni del telefono e che l'orario di lavoro sia impostato in Altro → Orario di lavoro.</p>
-<p><strong>Come elimino il mio account?</strong><br>Nell'app: Altro → Elimina account, in fondo alla pagina.</p>
+<section id="funzioni"><div class="wrap">
+  <h2>Tutto quello che serve in cantiere</h2>
+  <p class="sub">Pensata per chi lavora con le mani: poche schermate, pulsanti grandi, funziona anche dove il segnale è debole.</p>
+  <div class="grid"><article class="feat"><span class="ico" style="color:#F25A00;background:#F25A001c"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><h3>Timbratura automatica</h3><p>Il telefono riconosce l’arrivo in cantiere e timbra da solo entrata e uscita. Oppure si timbra con un tocco.</p></article><article class="feat"><span class="ico" style="color:#C27806;background:#C278061c"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span><h3>Rapportini con foto e firma</h3><p>Ore, lavori e materiali di ogni giorno, con le foto e la firma del cliente sul telefono.</p></article><article class="feat"><span class="ico" style="color:#1F6FD6;background:#1F6FD61c"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><h3>Ore pronte per le paghe</h3><p>Riepilogo del mese in PDF, CSV o nel tuo modello Excel. Pausa pranzo e straordinari già calcolati.</p></article><article class="feat"><span class="ico" style="color:#1E8A45;background:#1E8A451c"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><h3>Costi e margine dei cantieri</h3><p>Manodopera, materiali e spese di ogni cantiere a confronto con il preventivo: vedi subito se ci stai guadagnando.</p></article><article class="feat"><span class="ico" style="color:#B620C9;background:#B620C91c"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span><h3>Note spese e chilometri</h3><p>Il dipendente chiede il rimborso con la foto dello scontrino, tu approvi con un tocco.</p></article><article class="feat"><span class="ico" style="color:#35698F;background:#35698F1c"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></span><h3>Cantieri e squadre sulla mappa</h3><p>Chi ha timbrato in quale cantiere, a colpo d’occhio.</p></article><article class="feat"><span class="ico" style="color:#4C5BD6;background:#4C5BD61c"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></span><h3>Avvisi e richieste di materiale</h3><p>Scrivi alla squadra e vedi chi ha letto. Dal cantiere ti chiedono quello che manca.</p></article><article class="feat"><span class="ico" style="color:#CC3D78;background:#CC3D781c"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><h3>Turni, ferie e scadenze</h3><p>Pianifica i cantieri giorno per giorno, approva ferie e permessi, non dimenticare revisioni e patentini.</p></article></div>
+</div></section>
 
-<footer>Presentia · <a href="privacy.html">Informativa sulla privacy</a></footer>
+<section class="alt"><div class="wrap">
+  <h2>Semplice per chi la usa ogni giorno</h2>
+  <p class="sub">Il titolare vede tutto dalla Panoramica; il dipendente apre l’app e trova il suo cantiere, il pulsante per timbrare e il rapportino.</p>
+  <div class="shots">
+    <figure><div class="phone"><img src="media/1-panoramica.jpg" alt="Schermata Panoramica del titolare" loading="lazy"></div><figcaption><b>Panoramica</b>Chi è al lavoro e le ore di oggi</figcaption></figure>
+    <figure><div class="phone"><video src="media/presentia-reel-2-cantieri.mp4" muted loop playsinline preload="none" poster="media/2-cantieri.jpg" data-lazy></video></div><figcaption><b>Cantieri</b>Mappa, squadre e resoconti</figcaption></figure>
+    <figure><div class="phone"><video src="media/presentia-reel-3-rapportini.mp4" muted loop playsinline preload="none" poster="media/3-impostazioni.jpg" data-lazy></video></div><figcaption><b>Rapportini</b>Ore, materiali, foto e firma</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="computer"><div class="wrap split">
+  <div>
+    <h2>Dal telefono in cantiere, dal computer in ufficio</h2>
+    <p class="sub" style="margin-bottom:0">A fine mese i conti si fanno alla scrivania. Il pannello web del titolare ha gli stessi dati dell’app, in grande.</p>
+    <ul class="checks">
+      <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><b>La giornata in una pagina</b>: chi è in servizio, ore, richieste da approvare.</span></li>
+      <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><b>Margine dei cantieri</b> sempre aggiornato, con il preventivo a fianco.</span></li>
+      <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><b>Esportazioni</b> per le paghe in PDF, CSV o nel tuo Excel.</span></li>
+    </ul>
+  </div>
+  <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="media/pannello-web.jpg" alt="Il pannello web di Presentia con i numeri del giorno, la mappa dei cantieri e chi è in servizio" loading="lazy"></div>
+</div></section>
+
+<section id="privacy" class="alt"><div class="wrap split">
+  <div>
+    <h2>Fatta per rispettare le regole</h2>
+    <p class="sub" style="margin-bottom:0">In Svizzera e in Italia la posizione dei dipendenti non si può seguire liberamente. Presentia nasce con questo in mente, così tu sei tranquillo e loro anche.</p>
+  </div>
+  <ul class="checks" style="margin:0">
+    <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span><b>Solo timbratura, di base</b>: la posizione serve a riconoscere entrata e uscita dal cantiere. Si salvano luogo, data e ora, non gli spostamenti.</span></li>
+    <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span><b>Il resto lo decidi tu, con le carte in regola</b>: le funzioni in più si attivano solo dichiarando le condizioni di legge.</span></li>
+    <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span><b>Dati in Europa</b>, connessioni cifrate, niente pubblicità e niente vendita dei dati.</span></li>
+    <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span><b>Trasparente con i dipendenti</b>: nell’app trovano sempre scritto cosa viene registrato e perché.</span></li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Si parte in dieci minuti</h2>
+  <p class="sub">Non serve un tecnico e non serve cambiare modo di lavorare.</p>
+  <div class="steps">
+    <div class="step"><h3>Richiedi la prova</h3><p>Compili quattro campi e ricevi subito il codice della tua azienda.</p></div>
+    <div class="step"><h3>Registri l’azienda</h3><p>Scarichi l’app, inserisci orari di lavoro e i primi cantieri sulla mappa.</p></div>
+    <div class="step"><h3>Aggiungi la squadra</h3><p>Ogni dipendente entra con il suo numero di telefono e un codice. Da domani si timbra.</p></div>
+  </div>
+</div></section>
+
+<section class="final"><div class="wrap"><div class="box">
+  <h2>Provala sul tuo prossimo cantiere</h2>
+  <p class="sub">14 giorni gratis, con tutte le funzioni. Se non fa per te, non devi fare nulla.</p>
+  <a class="btn" href="prova.html">Prova gratis 14 giorni</a>
+  <p class="fine">Domande? Scrivi a <a href="mailto:presentia.app@gmail.com">presentia.app@gmail.com</a></p>
+</div></div></section>
 </main>
+
+<footer><div class="wrap">
+  <span>© 2026 Presentia</span>
+  <a href="supporto.html">Supporto</a>
+  <a href="privacy.html">Informativa sulla privacy</a>
+  <a href="elimina-account.html">Elimina account</a>
+  <span class="sp">Disponibile per iPhone e Android</span>
+</div></footer>
+
+<script>
+// I video sotto la prima schermata partono solo quando entrano nello schermo (e si fermano quando escono).
+(function () {
+  var videos = document.querySelectorAll('video[data-lazy]');
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) e.target.play().catch(function () {});
+      else e.target.pause();
+    });
+  }, { threshold: 0.4 });
+  videos.forEach(function (v) { io.observe(v); });
+})();
+</script>
 </body>
 </html>
