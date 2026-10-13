@@ -8,7 +8,10 @@
 <meta property="og:title" content="Presentia – Presenze e cantieri, sotto controllo">
 <meta property="og:description" content="Timbratura, rapportini, ore e margine dei cantieri in un’unica app. Prova gratis 14 giorni.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://lucaube02.github.io/presentia-sito/media/logo-512.png">
 <meta name="theme-color" content="#121417">
+<link rel="icon" type="image/svg+xml" href="media/logo.svg">
+<link rel="apple-touch-icon" href="media/logo-180.png">
 <style>
 :root{--bg:#121417;--bg2:#1A1D21;--card:#22262B;--line:#2E333A;--ink:#FBFAF8;--muted:#B4BAC1;--accent:#FF8A42;--accent2:#F25A00;--ok:#5AD48A}
 *{box-sizing:border-box}
@@ -20,6 +23,9 @@ header{position:sticky;top:0;z-index:10;background:rgba(18,20,23,.82);backdrop-f
 header .wrap{display:flex;align-items:center;gap:22px;height:64px}
 .logo{font-weight:800;font-size:21px;letter-spacing:1.2px;text-decoration:none;font-stretch:condensed}
 .logo b{color:var(--accent2)}
+.logo{display:inline-flex;align-items:center;gap:10px}
+.logo img{display:block;border-radius:9px}
+.flogo{display:inline-flex;align-items:center;gap:8px}
 nav{margin-left:auto;display:flex;gap:22px;align-items:center;font-size:15px}
 nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--ink)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent2);color:#fff!important;text-decoration:none;font-weight:700;border-radius:12px;padding:13px 22px;border:0;font-size:16px;transition:transform .15s,background .15s}
@@ -81,7 +87,7 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:center}footer a{co
 </head>
 <body>
 <header><div class="wrap">
-  <a class="logo" href="#top">PRE<b>·</b>SENTIA</a>
+  <a class="logo" href="#top"><img src="media/logo.svg" alt="" width="34" height="34"><span>PRE<b>·</b>SENTIA</span></a>
   <nav>
     <a href="#funzioni">Funzioni</a>
     <a href="#computer">Dal computer</a>
@@ -167,7 +173,7 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:center}footer a{co
 </main>
 
 <footer><div class="wrap">
-  <span>© 2026 Presentia</span>
+  <span class="flogo"><img src="media/logo.svg" alt="" width="22" height="22">© 2026 Presentia</span>
   <a href="supporto.html">Supporto</a>
   <a href="privacy.html">Informativa sulla privacy</a>
   <a href="elimina-account.html">Elimina account</a>
